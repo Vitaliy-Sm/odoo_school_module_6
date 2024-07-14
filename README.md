@@ -1,0 +1,1 @@
+# odoo_school_module_6

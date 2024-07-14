@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="library_book_2" model="library.book">
+        <field name="name">Поклик предків!</field>
+    </record>
+
+    <delete id="library_book_3" model="library.book"/>
+
+</odoo>

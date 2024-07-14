@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="library_book_1" model="library.book">
+        <field name="name">Маруся Чурай</field>
+        <field name="category_id" ref="library_book_category_1"/>
+    </record>
+    <record id="library_book_2" model="library.book">
+        <field name="name">Поклик предків</field>
+        <field name="category_id" ref="library_book_category_2"/>
+    </record>
+    <record id="library_book_3" model="library.book">
+        <field name="name">Двадцять тисяч льє під водою</field>
+        <field name="category_id" ref="library_book_category_3"/>
+    </record>
+</odoo>

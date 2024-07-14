@@ -5,11 +5,27 @@ class LibraryBook(models.Model):
     _name = 'library.book'
     _description = 'Library Books'
 
-    name = fields.Char(string='Title')
-    reader_id = fields.Many2one(comodel_name='res.partner')
-    taken_date = fields.Date('In use from', readonly=True)
-    user_id = fields.Many2one(string='Responsible', comodel_name='res.users')
-    active = fields.Boolean(default=True)
+    name = fields.Char(
+        string='Title',
+    )
+    reader_id = fields.Many2one(
+        comodel_name='res.partner',
+    )
+    taken_date = fields.Date(
+        string='In use from',
+        readonly=True,
+    )
+    user_id = fields.Many2one(
+        string='Responsible',
+        comodel_name='res.users',
+        default=lambda self: self.env.ref('base.user_demo').id,
+    )
+    active = fields.Boolean(
+        default=True,
+    )
+    category_id = fields.Many2one(
+        comodel_name='library.book.category',
+    )
 
     @api.onchange('reader_id')
     def _onchange_reader_id(self):

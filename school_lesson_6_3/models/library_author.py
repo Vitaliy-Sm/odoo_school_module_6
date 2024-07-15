@@ -4,7 +4,17 @@ from odoo import fields, models, _
 class LibraryAuthor(models.Model):
     _inherit = 'library.author'
 
-    biography = fields.Text(translate=True)
+    biography = fields.Text(
+        translate=True,
+    )
+    first_name = fields.Char(
+        required=True,
+        translate=True
+    )
+    last_name = fields.Char(
+        required=True,
+        translate=True
+    )
 
     def action_book_list(self):
         self.ensure_one()

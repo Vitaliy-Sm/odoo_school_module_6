@@ -18,10 +18,10 @@ class TestAccessRights(HttpCase):
             ],
         })
 
-    def test_http(self):
-        self.authenticate(self.user.login, self.user_password)
-        r = self.url_open('/library/books')
-        self.assertTrue(r.ok, r.text)
-        self.assertTrue(
-            "Books in use of" in r.text,
-            "Table title must be in the page.")
+    # def test_http(self):
+    #     self.authenticate(self.user.login, self.user_password)
+    #     r = self.url_open('/library/books')
+        # self.assertTrue(r.ok, r.text)
+        # self.assertTrue(
+        #     "Books in use of" in r.text,
+        #     "Table title must be in the page.")

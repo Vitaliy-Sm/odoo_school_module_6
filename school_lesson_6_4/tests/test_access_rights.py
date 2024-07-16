@@ -3,7 +3,7 @@ from odoo.tests import tagged
 from odoo.exceptions import AccessError
 
 
-@tagged('post_install', '-at_install', 'library', 'access')
+@tagged('post_install', '-at_install', 'library', 'access', 'odooschool')
 class TestAccessRights(TestCommon):
 
     def test_01_library_user_access_rights(self):
@@ -19,3 +19,9 @@ class TestAccessRights(TestCommon):
         book.with_user(self.library_admin).read()
         book.with_user(self.library_admin).write({'name': 'Test Book II'})
         book.with_user(self.library_admin).unlink()
+
+    def test_03_library_user_author_access_rights(self):
+        with self.assertRaises(AccessError):
+            self.env['library.author'].with_user(self.library_user).create(
+                {'first_name': 'test_name',
+                 'last_name': 'test_last_name'})
